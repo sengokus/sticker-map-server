@@ -12,7 +12,7 @@
         "db:create-migrate:dev": "npx prisma migrate dev --create-only",
         "db:migrate:dev": "npx prisma migrate dev",
         "db:migrate:prod": "npx dotenv -e .env.prod -- npx prisma migrate deploy",
-        "format": "prettier --ignore-path .gitignore --write '**/*.+(js|ts|json)'"
+        "format": "prettier --ignore-path .gitignore --write \"**/*.{js,ts,json}\""
     },
     "author": "",
     "license": "ISC",

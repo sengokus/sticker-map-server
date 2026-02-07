@@ -29,7 +29,7 @@ app.use("/api", apiRouter);
 app.use("/public", publicRouter);
 app.use("/web", webRouter);
 
-app.use(errorHandler)
+app.use(errorHandler);
 
 app.get("/", (req: Request, res: Response) => {
     res.send(`Sticker Map Server\n\nBuild time: ${process.env.BUILD_TIME}`);
