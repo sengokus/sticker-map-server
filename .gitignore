@@ -1,0 +1,8 @@
+node_modules/
+dist/
+
+#local
+.env*
+*starter-adminsdk*.json
+starter*.json
+.vscode/settings.json
