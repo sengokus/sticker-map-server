@@ -1,6 +1,6 @@
 // src/routes/api/locations.ts
 import { Router, Request, Response } from "express";
-import { supabase } from "../../lib/supabase";
+import { db } from "../../lib/db";
 
 const router = Router();
 
@@ -14,7 +14,7 @@ router.post("/", async (req: Request, res: Response) => {
     return res.status(400).json({ error: "lat and lng must be numbers" });
   }
 
-  const { data, error } = await supabase
+  const { data, error } = await db
     .from("locations")
     .insert([{ lat, lng }])
     .select();
