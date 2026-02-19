@@ -29,6 +29,9 @@ app.use("/api", apiRouter);
 app.use("/public", publicRouter);
 app.use("/web", webRouter);
 
+import locationsRouter from "./routes/api/locations";
+app.use("/api/locations", locationsRouter);
+
 app.use(errorHandler);
 
 app.get("/", (req: Request, res: Response) => {
