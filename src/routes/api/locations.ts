@@ -8,7 +8,7 @@ const router = Router();
 
 // POST /api/locations
 router.post("/", async (req: Request, res: Response) => {
-  const { lat, lng } = req.body;
+  const { lat, lng, sticker_type } = req.body;
 
   if (typeof lat !== "number" || typeof lng !== "number") {
     return res.status(400).json({ error: "lat and lng must be numbers" });
