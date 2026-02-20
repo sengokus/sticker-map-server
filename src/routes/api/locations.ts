@@ -10,19 +10,16 @@ const router = Router();
 router.post("/", async (req: Request, res: Response) => {
   const { stickers } = req.body;
 
-  // if (typeof lat !== "number" || typeof lng !== "number") {
-  //   return res.status(400).json({ error: "lat and lng must be numbers" });
-  // }
-
   //take lat, lng, and sticker_type
   const sticker_rows = stickers.map((s: any) => ({
-    lat: Number(s.lat),
-    lng: Number(s.lng),
+    latitude: Number(s.lat),
+    longitude: Number(s.lng),
     sticker_type: String(s.sticker_type),
+    username: String(s.name),
   }));
 
   const { data, error } = await db
-    .from("locations")
+    .from("food_space_atlas")
     .insert( sticker_rows )
     .select();
 
