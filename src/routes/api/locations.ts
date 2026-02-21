@@ -6,6 +6,18 @@ import { requireAuth } from "../../middlewares/auth";
 
 const app: Router = express.Router();
 
+// GET /api/locations/status
+app.get("/status", requireAuth, async (req: Request, res: Response) => {
+    const userId = req.user?.id;
+    if (!userId) {
+        return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    const { data: existing } = await db.from("atlas_responses").select("id").eq("user_id", userId).single();
+
+    return res.json({ hasResponded: !!existing });
+});
+
 // POST /api/locations
 app.post("/", requireAuth, async (req: Request, res: Response) => {
     const userId = req.user?.id;
