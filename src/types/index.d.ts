@@ -1,7 +1,4 @@
-import express from "express";
-
-// // to make the file a module and avoid the TypeScript error
-export {};
+import type { User } from "@supabase/supabase-js";
 
 declare global {
     namespace Express {
@@ -9,6 +6,7 @@ declare global {
             reqBody?: any | null | undefined;
             isUserNewlyActivated?: boolean | null | undefined;
             fileHash?: string | null | undefined;
+            user?: User;
         }
     }
 }
