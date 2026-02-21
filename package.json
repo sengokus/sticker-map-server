@@ -8,10 +8,7 @@
         "dev": "npx dotenv -e .env.dev -- tsc && tsc-alias && node dist/index.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node ./dist/index.js",
-        "build": "npx prisma generate && npx tsc -p . && tsc-alias",
-        "db:create-migrate:dev": "npx prisma migrate dev --create-only",
-        "db:migrate:dev": "npx prisma migrate dev",
-        "db:migrate:prod": "npx dotenv -e .env.prod -- npx prisma migrate deploy",
+        "build": "npx tsc -p . && tsc-alias",
         "format": "prettier --ignore-path .gitignore --write \"**/*.{js,ts,json}\""
     },
     "author": "",
