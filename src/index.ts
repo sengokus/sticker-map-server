@@ -1,5 +1,5 @@
+import "dotenv/config";
 import cors from "cors";
-import dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
 
 // Utils
@@ -7,12 +7,11 @@ import { errorHandler } from "./middlewares/exceptions/app-error";
 // Routes
 import adminRouter from "./routes/admin";
 import apiRouter from "./routes/api";
+import locationsRouter from "./routes/api/locations";
 import webRouter from "./routes/protected";
 import publicRouter from "./routes/public";
 import { logRequestMiddleware } from "./utils/request-utils";
 import { responseLogger } from "./utils/response-utils";
-
-dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -29,7 +28,6 @@ app.use("/api", apiRouter);
 app.use("/public", publicRouter);
 app.use("/web", webRouter);
 
-import locationsRouter from "./routes/api/locations";
 app.use("/api/locations", locationsRouter);
 
 app.use(errorHandler);

@@ -1,0 +1,2 @@
+# ensure load order does not change
+src/index.ts 
