@@ -8,6 +8,7 @@ import { errorHandler } from "./middlewares/exceptions/app-error";
 import adminRouter from "./routes/admin";
 import apiRouter from "./routes/api";
 import locationsRouter from "./routes/api/locations";
+import resultsRouter from "./routes/api/results"
 import webRouter from "./routes/protected";
 import publicRouter from "./routes/public";
 import { logRequestMiddleware } from "./utils/request-utils";
@@ -29,6 +30,7 @@ app.use("/public", publicRouter);
 app.use("/web", webRouter);
 
 app.use("/api/locations", locationsRouter);
+app.use("/api/results", resultsRouter);
 
 app.use(errorHandler);
 
