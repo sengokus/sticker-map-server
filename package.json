@@ -9,6 +9,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node ./dist/index.js",
         "build": "npx tsc -p . && tsc-alias",
+        "vercel-build": "npm run build && npx esbuild src/app.ts --bundle --platform=node --format=esm --outfile=api/index.js",
         "format": "prettier --ignore-path .gitignore --write \"**/*.{js,ts,json}\""
     },
     "author": "",
@@ -40,6 +41,7 @@
     },
     "devDependencies": {
         "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+        "esbuild": "^0.27.3",
         "prettier": "3.2.5"
     }
 }
