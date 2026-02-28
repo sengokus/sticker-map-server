@@ -1,4 +1,3 @@
-// use compiled app so Vercel resolves the module at runtime (build runs first)
-import app from "../dist/app.js";
+import app from "../src/app";
 
 export default app;
