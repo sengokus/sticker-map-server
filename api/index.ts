@@ -1,3 +1,6 @@
-import app from "../src/app";
+import type { Express } from "express";
 
-export default app;
+// use compiled app — at runtime only dist/ is available in the serverless env
+import app from "../dist/app.js";
+
+export default app as Express;
